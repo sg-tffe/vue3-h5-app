@@ -27,5 +27,5 @@ npm run lint
 ### Fix eslint error
 
 ```
-npm run prettier
+npm run fix
 ```
