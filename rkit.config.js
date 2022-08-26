@@ -3,7 +3,8 @@ const path = require('path')
 const proEnv = require('./build/prod.env')
 const { defineConfig } = require('@vue/cli-service')
 
-const publicPath = process.env.NODE_ENV === 'production' ? `//static.yuanzidai.com/tfstatic-${proEnv.BUSINESS_TYPE}/${proEnv.PROJECT_NAME}` : '/'
+const publicPath =
+  process.env.NODE_ENV === 'production' ? `//static.yuanzidai.com/tfstatic-${proEnv.BUSINESS_TYPE}/${proEnv.PROJECT_NAME}` : '/'
 
 module.exports = defineConfig({
   lintOnSave: process.env.NODE_ENV !== 'production',

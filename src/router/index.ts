@@ -2,8 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const App = () => import(/* webpackChunkName: "App" */ '@/App.vue')
 
-const List = () => import(/* webpackChunkName: "List" */ '@/components/List.vue')
-const List2 = () => import(/* webpackChunkName: "List" */ '@/components/Lis2.vue')
+const MyList = () => import(/* webpackChunkName: "MyList" */ '@/components/MyList.vue')
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,14 +10,9 @@ const routes: Array<RouteRecordRaw> = [
     component: App,
     children: [
       {
-        path: 'list',
-        name: 'list',
-        component: List
-      },
-      {
-        path: 'list2',
-        name: 'list2',
-        component: List2
+        path: 'mylist',
+        name: 'myList',
+        component: MyList
       }
     ]
   }
