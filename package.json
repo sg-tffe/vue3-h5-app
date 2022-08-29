@@ -12,8 +12,8 @@
   "dependencies": {
     "axios": "^0.27.2",
     "babel-polyfill": "^6.26.0",
-    "core-js": "^3.6.5",
     "copy-webpack-plugin": "^4.6.0",
+    "core-js": "^3.6.5",
     "fastclick": "^1.0.6",
     "md5": "^2.3.0",
     "vue": "^3.0.0",
@@ -46,7 +46,8 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "vue/setup-compiler-macros": true
     },
     "extends": [
       "plugin:vue/vue3-essential",

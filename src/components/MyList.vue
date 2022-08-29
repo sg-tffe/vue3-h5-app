@@ -1,23 +1,32 @@
 <template>
-  <div id="list" class="rui-flex">
-    <header class="rui-header rui-header-bank-card">
+  <div id="list" class="m-list">
+    <header>
       <h2 class="title">{{ title }}</h2>
     </header>
-    <div class="flex">
-      <ul class="rui-list">
-        <li class="item" v-for="item in list" :key="item.id" @click="jump">
-          <label class="label flex">{{ item.title }}</label>
+    <div class="main">
+      <ul>
+        <li v-for="item in list" :key="item.id">
+          <label class="label">{{ item.title }}</label>
           <button @click="toRemove(item)">删除</button>
         </li>
       </ul>
     </div>
     <button @click="toAdd">添加</button>
+    <br /><br /><br />
+    <MyChild title="子组件" msg="我是子组件" @on-delete="handleRemove" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { getList } from '@/api'
+import MyChild from './MyChild.vue'
+
+defineProps<{
+  title?: string
+  likes?: number
+}>()
+
 const title = ref('列表页')
 const list: any = ref([])
 let id = 10
@@ -41,6 +50,10 @@ function _getList() {
   })
 }
 
+function handleRemove() {
+  list.value.pop()
+}
+
 _getList()
 </script>
 <style lang="scss" scoped>
@@ -53,7 +66,7 @@ li {
   margin: 0;
   padding: 0;
 }
-.flex {
+.label {
   margin-right: 0.05rem;
 }
 </style>
